@@ -1,13 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import classNames from 'classnames';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { requestProviderChange } from '../actions/mvp.actions';
 
-class SideBar extends Component {
+class SideBar extends PureComponent {
   render() {
-    console.table(this.props);
-  const { providers, user } = this.props;
+  const { providers, user, match } = this.props;
   const css = provider => classNames(`fa fa-${provider.icon || "circle-o"}`);
     
   return (
@@ -20,7 +17,7 @@ class SideBar extends Component {
           </li>
         <li><ul className="list-unstyled">
         {providers.map((p, i) => (
-              <li className={classNames({ selected: this.props.selected === p.name })} key={i}>
+              <li className={classNames({ selected: match.url.replace(/\//g, '') === p.name.toLowerCase() })} key={i}>
                 <Link to={`/${p.id || 'other'}`}><i className={css(p)}></i> {`${p.name} Feed`}</Link></li>
           ))}
         </ul></li>
@@ -63,10 +60,12 @@ SideBar.defaultProps = {
  }
 };
 
-export default connect(state => ({
+/* export default connect(state => ({
   selected: state.mvp.selectedProvider,
   connectProvider: state.mvp.connectProvider,
 }), dispatch => ({
   requestProviderChange: provider => dispatch(requestProviderChange(provider))
-}))(SideBar);
+}))(SideBar); */
+export default SideBar;
+
 
