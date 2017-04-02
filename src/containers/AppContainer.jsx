@@ -32,8 +32,7 @@ class AppContainer extends Component {
             <Route path='/*' component={SideBar} />
            </div>
            <div className="workarea">
-            <Connector />
-            <Route exact={true} path='/' />
+            <Route exact={true} path='/' component={Connector} />
             <Route path='/facebook' component={Facebook} />
             <Route path='/other' component={DummyComponent} />       
            </div>
