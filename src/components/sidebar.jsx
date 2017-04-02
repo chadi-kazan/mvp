@@ -18,7 +18,7 @@ class SideBar extends PureComponent {
         <li><ul className="list-unstyled">
         {providers.map((p, i) => (
               <li className={classNames({ selected: match.url.replace(/\//g, '') === p.name.toLowerCase() })} key={i}>
-                <Link to={`/${p.id || 'other'}`}><i className={css(p)}></i> {`${p.name} Feed`}</Link></li>
+                <Link to={`/${p.id || 'other'}`}><i className={css(p)}></i> {`Add ${p.name}`}</Link></li>
           ))}
         </ul></li>
         </ul>
