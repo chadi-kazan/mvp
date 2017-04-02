@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 class Connector extends PureComponent {
  renderEmpty() {
   return (
-   <div className="main-workarea"><h1>Select a provider from the pane on the left to start</h1></div>
+    <div className="main-workarea">
+      <h2 style={{ alignSelf: 'center' }}>Select a provider from the pane on the left to start</h2></div>
   );
  }
  render() {
