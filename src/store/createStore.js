@@ -1,7 +1,9 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import createHistory from 'history/createBrowserHistory';
+import { routerMiddleware } from 'react-router-redux';
 import makeRootReducer from './reducers';
-import { swithProviderSaga } from '../sagas/provider.connect.saga';
+import { switchProviderSaga } from '../sagas/provider.connect.saga';
 
 export default (initialState = {}) => {
 
@@ -20,16 +22,21 @@ export default (initialState = {}) => {
   }
 
   // middleware
+  // Create a history of your choosing (we're using a browser history in this case)
+  const history = createHistory();
+
+  // Build the middleware for intercepting and dispatching navigation actions
+  const router = routerMiddleware(history);
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     makeRootReducer(),
     initialState,
     composeEnhancers(
-      applyMiddleware(sagaMiddleware),
+      applyMiddleware(sagaMiddleware, router),
       ...enhancers
     )
   );
-  sagaMiddleware.run(swithProviderSaga);
+  sagaMiddleware.run(switchProviderSaga);
   store.asyncReducers = {};
 
   // To unsubscribe, invoke `store.unsubscribeHistory()` anytime
@@ -42,5 +49,5 @@ export default (initialState = {}) => {
     });
   }
 
-  return store;
+  return {store, history};
 }

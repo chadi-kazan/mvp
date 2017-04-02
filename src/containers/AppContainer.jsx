@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import SideBar from '../components/sidebar';
 import ToolBar from '../components/toolbar';
@@ -9,7 +10,7 @@ import DummyComponent from '../providers/other';
 
 class AppContainer extends Component {
   static propTypes = {
-    routes : PropTypes.object,
+    history : PropTypes.object,
     store  : PropTypes.object
   }
 
@@ -20,7 +21,7 @@ class AppContainer extends Component {
     return (
       <Provider store={store}>
         <div style={{ height: '100%' }}>
-       <BrowserRouter>
+        <ConnectedRouter history={this.props.history}>
         <div className="viewport">
          <div className="viewport-content">
           <div className="toolbar">
@@ -39,7 +40,7 @@ class AppContainer extends Component {
           </div>
          </div>
         </div>
-        </BrowserRouter>
+        </ConnectedRouter>
         </div>
       </Provider>
     )

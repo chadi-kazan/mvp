@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import { Link, Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { requestProviderChange } from '../actions/mvp.actions';
 
 class SideBar extends Component {

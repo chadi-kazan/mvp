@@ -14,6 +14,6 @@ function* connect(action) {
   }
 }
 
-export function* swithProviderSaga() {
+export function* switchProviderSaga() {
   yield takeEvery(REQUEST_PROVIDER_CHANGE, connect);
 }

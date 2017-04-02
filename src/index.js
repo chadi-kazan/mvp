@@ -4,11 +4,10 @@ import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import createStore from './store/createStore';
 import AppContainer from './containers/AppContainer';
-import routes from './routes/index';
 import './App.css';
 
 const initialState = window.___INITIAL_STATE__;
-const store = createStore(initialState);
+const storeConfigurator = createStore(initialState);
 
 
 // ========================================================
@@ -19,7 +18,7 @@ const MOUNT_NODE = document.getElementById('root');
 let render = () => {
 
   ReactDOM.render(
-    <AppContainer store={store} routes={routes} />,
+    <AppContainer store={storeConfigurator.store} history={storeConfigurator.history} />,
     MOUNT_NODE
   )
 }
