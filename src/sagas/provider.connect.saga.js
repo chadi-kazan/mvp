@@ -4,7 +4,7 @@ import { changeProvider, connectToProvider, REQUEST_PROVIDER_CHANGE } from '../a
 function* connect(action) {
  try {
   
-   //trigger change provider
+   //trigger change provider 
   yield put(changeProvider(action.payload));
   //trigger connect
   

@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import SideBar from '../components/sidebar';
 import ToolBar from '../components/toolbar';
+import Connector from '../components/connector';
 
 class AppContainer extends Component {
   static propTypes = {
@@ -27,7 +28,8 @@ class AppContainer extends Component {
            <div className="sidebar">
             <SideBar />
            </div>
-           <div className="workarea"> 
+           <div className="workarea">
+            <Connector />
            </div>
           </div>
          </div>

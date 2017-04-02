@@ -7,11 +7,11 @@ import { requestProviderChange } from '../actions/mvp.actions';
 class SideBar extends Component {
  render() {
   const { providers, user } = this.props;
-  // const css = provider => classNames(`fa fa-${provider.icon || "circle-o"}`);
+  const css = provider => classNames(`fa fa-${provider.icon || "circle-o"}`);
   return (
    <div>
       <ul className="list-unstyled">
-        <li><span className="glyphicon glyphicon-dashboard"></span> Dashboard</li>
+        <li><span className="fa fa-dashboard"></span> Dashboard</li>
         <li><ul className="list-unstyled">
         <li><span className="glyphicon glyphicon-plus"></span> Add New Source
         <span className="pull-right fa fa-caret-down"></span>
@@ -19,7 +19,7 @@ class SideBar extends Component {
         <li><ul className="list-unstyled">
         {providers.map((p, i) => (
               <li className={classNames({ selected: this.props.selected === p.name })} key={i}>
-                <Link to={`/${p.id || 'other'}`}>{`${p.name} Feed`}</Link></li>
+                <Link to={`/${p.id || 'other'}`}><i className={css(p)}></i> {`${p.name} Feed`}</Link></li>
           ))}
         </ul></li>
         </ul>

@@ -28,7 +28,7 @@
 
 .viewport-content{
   height: 80%;
-  width: 80%;
+  width: 85%;
   margin: auto;
 }
 .toolbar{
@@ -83,6 +83,8 @@
   width: 80%;
   height: 80%;
   margin: auto;
+  display: flex;
+  flex-direction: row;
 }
 .provider-title {
   margin-top: 20px;
