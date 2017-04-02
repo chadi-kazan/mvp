@@ -1,0 +1,140 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.viewport{
+  display: flex;
+  height: 80%;
+  margin: auto;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.viewport-content{
+  height: 80%;
+  width: 80%;
+  margin: auto;
+}
+.toolbar{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position:relative;
+}
+
+
+.app-container {
+  display: flex;
+  flex: 8;
+  flex-direction: row;
+  border-top: 2px solid #ddd;
+}
+
+.sidebar{
+  flex: 2;
+  border-right: 2px solid #ddd;
+   max-width: 200px;
+}
+
+.sidebar li {
+  margin-left: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 2px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #000;
+}
+.sidebar a:hover{
+  cursor: pointer;
+}
+.sidebar i.fa{
+  min-width: 20px;
+}
+
+.sidebar li.selected, .sidebar li.selected>a {
+  color: blue;
+}
+
+.workarea{
+  flex: 7;
+}
+
+.main-workarea {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+.provider-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.main-workarea > div {
+  width: 50%;
+  margin: auto;
+  text-align:center;
+}
+
+.pgrs-container{
+  width: 100%;
+  background-color: #ddd;
+}
+
+.pgrs-bar{
+  background-color: green;
+}
+
+.toolbar li {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.action-group{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.cmpt-addon {
+  display: flex;
+}
+
+.cmpt-addon-field {
+  flex: 1;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top:5px;
+  padding-bottom: 5px;
+}
+
+.cmpt-addon-item {
+  padding-left: 2px;
+  padding-right: 4px;
+  border-right: 1px solid #ddd;
+  padding-top:5px;
+  padding-bottom: 5px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
