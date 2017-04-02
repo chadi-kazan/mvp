@@ -1,13 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Router } from 'react-router-dom';
 import { requestProviderChange } from '../actions/mvp.actions';
 
 class SideBar extends Component {
- render() {
+  render() {
+    console.table(this.props);
   const { providers, user } = this.props;
   const css = provider => classNames(`fa fa-${provider.icon || "circle-o"}`);
+    
   return (
    <div>
       <ul className="list-unstyled">
@@ -61,7 +63,10 @@ SideBar.defaultProps = {
  }
 };
 
-export default connect(state => ({ selected: state.mvp.selectedProvider, connectProvider: state.mvp.connectProvider }), dispatch => ({
+export default connect(state => ({
+  selected: state.mvp.selectedProvider,
+  connectProvider: state.mvp.connectProvider,
+}), dispatch => ({
   requestProviderChange: provider => dispatch(requestProviderChange(provider))
 }))(SideBar);
 
