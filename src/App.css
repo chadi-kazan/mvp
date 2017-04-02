@@ -117,6 +117,12 @@ input[type="text"] {
   border-radius: 4px;
 }
 
+.fb-login{
+  text-transform: none;
+  text-shadow: 0 -1px 0 #354c8c;
+  background-image: linear-gradient(rgb(76, 105, 186), rgb(59, 85, 160));
+}
+
 .main-workarea > div {
   width: 50%;
   margin: auto;
