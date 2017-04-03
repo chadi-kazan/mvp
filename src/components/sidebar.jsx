@@ -27,6 +27,7 @@ class SideBar extends PureComponent {
         <hr /></li>
         <li>{user.name}<hr/></li>
         <li><a onClick={() => { }}><i className="fa fa-sign-out"></i> Logout</a></li>
+        <li><Link to="/privacy">Privacy Policy</Link></li>
       </ul>
     </div>
   );
