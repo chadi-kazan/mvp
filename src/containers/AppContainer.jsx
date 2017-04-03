@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import SideBar from '../components/sidebar';
@@ -7,6 +7,7 @@ import ToolBar from '../components/toolbar';
 import Connector from '../components/connector';
 import Facebook from '../providers/facebook';
 import DummyComponent from '../providers/other';
+import Privacy from '../components/Privacy';
 
 class AppContainer extends Component {
   static propTypes = {
@@ -25,16 +26,27 @@ class AppContainer extends Component {
         <div className="viewport">
          <div className="viewport-content">
           <div className="toolbar">
-           <ToolBar />
+            <Switch>
+              <Route path='/privacy' component={null} />        
+              <Route path='/' component={ToolBar} />
+              <Route path='/:provider' component={ToolBar} />      
+            </Switch>
           </div>
           <div className="app-container">
            <div className="sidebar">
-            <Route path='/*' component={SideBar} />
+             <Switch>
+              <Route path='/privacy' component={null} />
+              <Route path='/' component={SideBar} />        
+              <Route path='/:provider' component={SideBar} />
+            </Switch>        
            </div>
            <div className="workarea">
-            <Route exact={true} path='/' component={Connector} />
-            <Route path='/facebook' component={Facebook} />
-            <Route path='/other' component={DummyComponent} />       
+            <Switch>        
+              <Route exact={true} path='/' component={Connector} />
+              <Route path="/privacy" exact={true} component={Privacy} />        
+              <Route path='/facebook' component={Facebook} />
+              <Route path='/other' exact={true} component={DummyComponent} /> 
+            </Switch>          
            </div>
           </div>
          </div>
