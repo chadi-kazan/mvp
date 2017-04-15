@@ -26,6 +26,14 @@ export default class Facebook extends PureComponent {
       const expiresAt = (new Date().getTime() / 1000 | 0) + response.expiresIn;
       const facebookToken = { ...response, expiresAt };
       localStorage.setItem(`facebook_token`, JSON.stringify(facebookToken));
+      window.FB.api(
+          `/me/music`,
+          function (musicResponse) {
+            if (musicResponse && !musicResponse.error) {
+              console.table(musicResponse);
+            }
+          }
+      );
       // TODO dispatch an action to the store. for now, for the sake of the demo just change the state
       this.setState({ token: facebookToken });
    }
